@@ -6,23 +6,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="form-styles.css" />
+    <link rel="stylesheet" href="meme-styles.css" />
     <title>Meme generator</title>
 </head>
 
 <body>
-    <h1>Make some dank memes!</h1>
-    <form id="submission" action="">
-        <input type="text" id="meme-top-text">
-        <input type="text" id="meme-bottom-text">
-        <input type="text" id="meme-image-url">
-        <button>Meme-ify me, yo!</button>
-    </form>
-    <div id="meme-container">
+    <h1>Make some spicy memes!</h1>
+    <div class="form-container">
+        <form id="submission" action="">
+            <label for="meme-top-text">Top Text</label>
+
+
+            <input type="text" id="meme-top-text">
+            <label for="meme-bottom-text">Bottom Text</label>
+            <input type="text" id="meme-bottom-text">
+            <label for="meme-image-url">Image</label>
+            <input type="text" id="meme-image-url">
+            <button class="form-btn">Meme-ify me, yo!</button>
+        </form>
+    </div>
+    <div class="meme-container">
 
 
     </div>
-    
+
     <script src="app.js"></script>
 </body>
 

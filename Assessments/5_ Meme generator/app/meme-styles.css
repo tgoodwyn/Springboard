@@ -1,0 +1,28 @@
+.meme-container {
+    /* background-color: #e5eaf5; */
+    background-color: #4fffed;
+    margin-top: 10px;
+    border-radius: 5px;
+    min-height: 500px;
+    
+  }
+  
+  .meme-btn {
+    height: 25px;
+    width: 80px;
+    margin: 5px 100px;
+  }
+  
+  .meme {
+      width: 300px;
+      border: solid black 3px;
+      display: inline-block;
+      margin: 15px;
+      border-radius: 5px;
+      vertical-align: middle;
+  }
+  
+  .meme-img {
+    max-height: 100%;
+    max-width: 100%;
+  }
