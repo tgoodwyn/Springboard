@@ -7,6 +7,7 @@ const imgInput = document.querySelector("#meme-image-url")
 const topInput = document.querySelector("#meme-top-text")
 const bottomInput = document.querySelector("#meme-bottom-text")
 const meme_container = document.querySelector(".meme-container")
+const validation_text = document.querySelector("#validation-text")
 
 submission.addEventListener("submit", function (event) {
     event.preventDefault()
@@ -14,6 +15,12 @@ submission.addEventListener("submit", function (event) {
     const imgURL = imgInput.value
     const top_text = topInput.value
     const bottom_text = bottomInput.value
+    if (!imgURL || !top_text || !bottom_text) {
+        validation_text.style.display = "block"
+        return
+    } else {
+        validation_text.style.display = "none"
+    }
     add_meme_to_page(imgURL, top_text, bottom_text)
     console.log(`my imgURL is ${imgURL}`)
     clear_values()

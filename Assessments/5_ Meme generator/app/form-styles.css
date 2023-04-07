@@ -24,6 +24,13 @@ label {
   -webkit-text-stroke-color: black;
   margin-left: 15px;
 }
+
+#validation-text {
+  display: none;
+  color: #f3ffff;
+  font-weight: 1000;
+  margin: 5px 5px;
+}
 .form-btn {
   background-color: #FFCB3A;
   color :#343b3c;
