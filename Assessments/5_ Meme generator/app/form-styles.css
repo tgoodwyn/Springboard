@@ -10,9 +10,16 @@ body {
   color:#e5eaf5;
 }
 
+label {
+  color:#ffffff;
+}
+
+input {
+  color :#343b3c;
+}
 input, label, .form-btn {
   /* color:#494d5f; */
-  color:#ffffff;
+  
   display: block;
   margin: 5px;
   font-weight: 1000;

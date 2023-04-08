@@ -40,22 +40,39 @@ function clear_values() {
 }
 
 function add_meme_to_page(imgURL, top_text, bottom_text) {
-    const new_meme = document.createElement("div")
-    new_meme.classList.add("meme")
-    const new_img = document.createElement("img")
-    new_img.setAttribute("src", imgURL)
-    new_img.classList.add("meme-img")
-    
+    const new_meme = create_meme(imgURL, top_text, bottom_text)
 
     const rm_btn = document.createElement("button")
     rm_btn.id = "remove_button"
     rm_btn.classList.add("meme-btn")
     rm_btn.innerText = "remove"
-    new_meme.append(new_img)
+    
     new_meme.append(rm_btn)
 
     meme_container.append(new_meme)
 }
 
+function create_meme(imgURL, top_text, bottom_text) {
+    const meme = document.createElement("div")
+    meme.classList.add("meme")
+    const new_img = document.createElement("img")
+    new_img.setAttribute("src", imgURL)
+    new_img.classList.add("meme-img")
+    
+    const top_text_el = document.createElement("div")
+    top_text_el.classList.add("meme-top")
+    const top_text_p = document.createElement
+    top_text_el.classList.add("meme-text")
+    top_text_el.innerText = top_text
+    const bottom_text_el = document.createElement("div")
+    bottom_text_el.classList.add("meme-bottom")
+    bottom_text_el.classList.add("meme-text")
+    bottom_text_el.innerText = bottom_text
+    meme.append(top_text_el)
+    meme.append(bottom_text_el)
+    meme.append(new_img)
+    
+    return meme
+}
 
 
