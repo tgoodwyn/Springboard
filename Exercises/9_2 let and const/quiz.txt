@@ -1,0 +1,13 @@
+## **Quiz**
+
+- What is the difference between ***var*** and ***let***?
+Var is global scope and you can reassign and redeclare the variable. With "let", the variable is block scoped and you can only reassign it, not redeclare it.
+
+- What is the difference between ***var*** and ***const***?
+Const is block scope, and you cant reassign or redeclare a variable.  Var is global scope and you can do both those things.
+- What is the difference between  let and const?
+You can reassign variables declared with let, but not with const.
+
+- What is hoisting?
+
+In most languages, like C, you can't use a variable or function until after its been declared in the file.  In javascript, all symbols (variables and functions) are "hosited" to the top of the file during the compilation process, so when writing source code, you can actually refer to variables/functions that are declared later on the page.
