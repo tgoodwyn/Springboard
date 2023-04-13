@@ -4,7 +4,10 @@ function double(arr) {
     });
   }
 
-const double = arr => arr.map(val => val * 2);
+// Refactor the above code to use two arrow functions. Turn it into a one-liner.
+
+const double = (arr) => arr.map( (val) => val * 2 )
+// Refactor the following function to use arrow functions:
 
 function squareAndFindEvens(numbers){
     var squares = numbers.map(function(num){
@@ -16,4 +19,4 @@ function squareAndFindEvens(numbers){
     return evens;
   }
   
-  const squareAndFindEvens = numbers => numbers.map(val => val ** 2).filter(square => square % 2 === 0)
+const squareAndFindEvens = (numbers) => (numbes).map( n => n ** 2).filter( n => n % 2 == 0)
