@@ -7,7 +7,7 @@
 
 class Game {
   constructor(height = 6, width = 7) {
-    this.players = [p1, p2];
+    //this.players = [p1, p2];
     this.height = height;
     this.width = width;
     this.currPlayer = 1;
@@ -24,8 +24,8 @@ class Game {
    */
 
   makeBoard() {
-    for (let y = 0; y < HEIGHT; y++) {
-      this.board.push(Array.from({ length: WIDTH }));
+    for (let y = 0; y < this.height; y++) {
+      this.board.push(Array.from({ length: this.width }));
     }
   }
 
@@ -42,7 +42,7 @@ class Game {
     // so that we can remove the event listener correctly later
     this.handleGameClick = this.handleClick.bind(this);
     top.addEventListener('click', this.handleGameClick);
-    for (let x = 0; x < WIDTH; x++) {
+    for (let x = 0; x < this.width; x++) {
       const headCell = document.createElement('td');
       headCell.setAttribute('id', x);
       top.append(headCell);
@@ -51,10 +51,10 @@ class Game {
     html_board.append(top);
 
     // make main part of board
-    for (let y = 0; y < HEIGHT; y++) {
+    for (let y = 0; y < this.height; y++) {
       const row = document.createElement('tr');
 
-      for (let x = 0; x < WIDTH; x++) {
+      for (let x = 0; x < this.width; x++) {
         const cell = document.createElement('td');
         cell.setAttribute('id', `${y}-${x}`);
         row.append(cell);
@@ -108,7 +108,7 @@ class Game {
     }
 
     // place piece in board and add to HTML table
-    board[y][x] = currPlayer;
+    this.board[y][x] = this.currPlayer;
     this.placeInTable(y, x);
     
     // check for win
@@ -117,18 +117,18 @@ class Game {
     }
     
     // check for tie
-    if (board.every(row => row.every(cell => cell))) {
+    if (this.board.every(row => row.every(cell => cell))) {
       return this.endGame('Tie!');
     }
       
     // switch players
-    currPlayer = currPlayer === 1 ? 2 : 1;
+    this.currPlayer = this.currPlayer === 1 ? 2 : 1;
   }
 
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
   checkForWin() {
-    function _win(cells) {
+    const _win = cells => {
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
