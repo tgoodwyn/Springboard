@@ -33,7 +33,7 @@ class Game {
 
   makeHtmlBoard() {
     const html_board = document.getElementById('board');
-
+    board.innerHTML = '';
     // make column tops (clickable area for adding a piece to that column)
     const top = document.createElement('tr');
     top.setAttribute('id', 'column-top');
@@ -98,6 +98,7 @@ class Game {
   /** handleClick: handle click of column top to play piece */
 
   handleClick(evt) {
+    if (this.gameOver) return;
     // get x from ID of clicked cell
     const x = +evt.target.id;
 
@@ -113,6 +114,7 @@ class Game {
     
     // check for win
     if (this.checkForWin()) {
+      this.gameOver = true;
       return this.endGame(`Player ${this.currPlayer} won!`);
     }
     
@@ -163,5 +165,8 @@ class Game {
 }
 
 
+document.getElementById('start-game').addEventListener('click', () => {
+  this.gameOver = false;
+  new Game(6, 7); 
+});
 
-new Game(6, 7); 
