@@ -1,0 +1,3 @@
+git config --global --list
+user.name=Tyler
+user.email=tgoodwyn@gmail.com
