@@ -1,0 +1,10 @@
+- What ***git*** command creates a branch?
+git checkout -b feature
+- What is the difference between a fast-forward and recursive merge?
+fast forward is when the original branch has had no commits between the time the feature branch is created and merged back into
+- What ***git*** command changes to another branch?
+git checkout feature
+- What ***git*** command deletes a branch?
+git branch -d feature
+- How do merge conflicts happen?
+if the same location in the same file has a discrepancy between the two branches being merged
