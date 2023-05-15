@@ -21,6 +21,13 @@ function getCurrentUIValues() {
 // Put some default values in the inputs
 // Call a function to calculate the current monthly payment
 function setupIntialValues() {
+  const values = { amount: 2000, years: 1, rate: 4.50 }
+  const amountUI = document.getElementById("loan-amount")
+  const yearsUI = document.getElementById("loan-years")
+  const rateUI = document.getElementById("loan-rate")
+  amountUI.value = values.amount
+  yearsUI.value = values.years
+  rateUI.value = values.rate
 }
 
 // Get the current values from the UI
