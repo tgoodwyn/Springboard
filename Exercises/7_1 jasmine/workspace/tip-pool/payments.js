@@ -1,6 +1,6 @@
 let billAmtInput = document.getElementById('billAmt');
 let tipAmtInput = document.getElementById('tipAmt');
-let paymentForm = document.getElementById('paymentForm');
+
 
 let paymentTbody = document.querySelector('#paymentTable tbody');
 let summaryTds = document.querySelectorAll('#summaryTable tbody tr td');
@@ -8,7 +8,20 @@ let summaryTds = document.querySelectorAll('#summaryTable tbody tr td');
 let allPayments = {};
 let paymentId = 0;
 
-paymentForm.addEventListener('submit', submitPaymentInfo);
+window.addEventListener('DOMContentLoaded', function() {
+  let paymentForm = document.getElementById('paymentForm');
+  billAmtInput = document.getElementById('billAmt');
+  tipAmtInput = document.getElementById('tipAmt');
+
+
+  paymentTbody = document.querySelector('#paymentTable tbody');
+  summaryTds = document.querySelectorAll('#summaryTable tbody tr td');
+  if (paymentForm) {
+    paymentForm.addEventListener('submit', submitPaymentInfo);
+  };
+  
+});
+
 
 // Add a curPayment object to allPayments, update html and reset input values
 function submitPaymentInfo(evt) {
@@ -56,6 +69,8 @@ function appendPaymentTable(curPayment) {
   appendTd(newTr, '$' + curPayment.tipAmt);
   appendTd(newTr, curPayment.tipPercent + '%');
 
+  appendDeleteBtn(newTr, 'payment');
+  
   paymentTbody.append(newTr);
 }
 

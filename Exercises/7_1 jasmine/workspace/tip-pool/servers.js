@@ -1,12 +1,19 @@
 let serverNameInput = document.getElementById('serverName');
-let serverForm = document.getElementById('serverForm');
+
 
 let serverTbody = document.querySelector('#serverTable tbody');
 
 let allServers = {};
 let serverId = 0;
 
-serverForm.addEventListener('submit', submitServerInfo);
+window.addEventListener('DOMContentLoaded', function() {
+  let serverForm = document.getElementById('serverForm');
+  if (serverForm) {
+    serverForm.addEventListener('submit', submitServerInfo);
+  };
+  
+});
+
 
 // create server object and add to allServers, update html and reset input
 function submitServerInfo(evt) {
@@ -38,7 +45,7 @@ function updateServerTable() {
 
     appendTd(newTr, curServer.serverName);
     appendTd(newTr, '$' + tipAverage.toFixed(2));
-
+    appendDeleteBtn(newTr, 'payment');
     serverTbody.append(newTr);
   }
 }
