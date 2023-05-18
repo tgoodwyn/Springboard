@@ -22,7 +22,6 @@ function searchHandler(e) {
 		const fruit_name_lc = fruit_name.toLowerCase()
 		if (fruit_name_lc.includes(current_string)) {
 			results.push(fruit_name)
-			console.log(fruit_name)
 		}
 	}
 	showSuggestions(results, current_string)
@@ -41,6 +40,8 @@ function showSuggestions(results, inputVal) {
 
 function useSuggestion(e) {
 	// TODO
+	const selected = e.target.innerText;
+	input.value = selected;
 }
 
 input.addEventListener('keyup', searchHandler);
