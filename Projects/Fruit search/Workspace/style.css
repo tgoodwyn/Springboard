@@ -15,9 +15,12 @@ input[type=text] {
 }
 
 input[type=text]:focus {
+  /* learned that text inputs come with automatic border, focused and unfocused, so you need to disable it or set to something you like */
   border: 3px solid #555;
 }
+
 body {
+  /* learned how to set a gradient */
   background: linear-gradient(to right, #f5ca1c 0%,#df4f00 100%); 
   padding: 10em; 
 
@@ -26,43 +29,46 @@ body {
 .search-container {
   width: 50%;
   margin: auto;
-}
-li, input {
   background: #f2ae47;
   color: #333; 
-  /* font-family: 'sans-serif';  */
   font-size: 20px; 
   font-weight: 300;
 }
+
 input {
+  /* learned that form elements do not inherit font properties from their parentslike other html elements */
+  background: inherit;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+input, suggestions {
  display: block; 
  width: 100%; 
  margin: auto;
+ padding: 0;
 }
 
 
-suggestions {
-  padding: 10em;
-  width: 100%;
-  margin: auto;
-}
 
 ul {
-  /* TODO */
   display:none;
-
 }
+
 ul.has-suggestions {
   display: inline-block;
   list-style: none;
   width: 100%;
-  
-
+  margin: 0;
+  padding: 0;
+  /*  learned that ul's come with automatic margin above/below, and left padding that need to be reset */
 }
+
 ul li {
   padding: .5em .75em;
-  
 }
+
 ul li:hover {
   background: #e65c00;
   color: #333;
