@@ -1,0 +1,31 @@
+## **Part One: Solidify Terminology**
+
+In your own terms, define the following terms:
+
+- What is HTTP?
+its a protocol that we use to make requests of server, specifically to return html pages
+- What is a URL?
+its an alias for an ip address
+a URL is an address for some internet resource.
+- What is DNS?
+its the service that translates url's into ip addresses
+Domain Name System, not service
+- What is a query string?
+its what you can append to the end of a url string to add parameters to an http request that will influence response by server
+- What are two HTTP verbs and how are they different?
+post - update some sort of state on the server
+get - retrieve information without changing anything
+- What is an HTTP request?
+its the packet that's delivered from client to server making a request for html data
+- What is an HTTP response?
+its the response given by the server to the client
+- What is an HTTP header? Give a couple examples of request and response headers you have seen.
+each request/response header has some metadata information at the top called headers.  for example, accept-content defines the kind of content the client will accept as a respone
+- What are the processes that happen when you type “[http://somesite.com/some/page.html](http://somesite.com/some/page.html)” into a browser?
+your machine sends an http request to your router, which then makes a request to a dns server for name resolution of somesite.com. once it has the ip address, then it routes your request to that ip address to whatever the next router is along the path
+your browser actually is the thing that contact dns    
+1. Your browser “resolves” the name into an IP address using DNS
+    2. Your browser makes a request to that IP address, including headers (info about browser, any previous cookies, and other things)
+    3. The server sends a response (typically, HTML, with a status code (200 if it was sucessful)
+    4. The browser makes a DOM from that HTML, and finds any other resources needed (images, CSS, JavaScript, etc)
+    5. The browser makes separate HTTP requests for those resources and receives response from the server for each
