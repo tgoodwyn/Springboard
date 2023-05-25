@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GIF Search</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #000000, #1a1a1a 90%);
+      min-height: 100vh;
+      margin: 0;
+    }
+    
+    #gifContainer {
+      margin-top: 20px;
+    }
+    
+    .gifImage {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    #searchForm {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    #searchInput,
+    #searchForm button {
+      height: 40px;
+      font-size: 1.2rem;
+    }
+
+    #removeButtonContainer {
+      display: flex;
+      justify-content: center;
+    }
+
+    #clearButton {
+      background-color: orange;
+      color: black;
+      padding: 8px 20px;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css">
+  <style>
+    #searchForm button {
+      background-color: #343a40;
+      color: white;
+      padding: 8px 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>GIF Search</h1>
+  
+  <form id="searchForm" class="my-4">
+    <div class="input-group">
+      <input type="text" id="searchInput" class="form-control" placeholder="Search for a GIF">
+      <button type="submit" class="btn btn-primary">Search Giphy!</button>
+    </div>
+  </form>
+  
+  <div id="removeButtonContainer">
+    <button id="clearButton" class="btn btn-warning">Remove Images</button>
+  </div>
+  
+  <div id="gifContainer"></div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    const gifContainer = document.getElementById('gifContainer');
+    const clearButton = document.getElementById('clearButton');
+    
+    searchForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const searchTerm = searchInput.value;
+      searchInput.value = '';
+      searchGiphyAPI(searchTerm);
+    });
+    
+    clearButton.addEventListener('click', function() {
+      gifContainer.innerHTML = '';
+    });
+    
+    function searchGiphyAPI(searchTerm) {
+      const apiKey = '3S5gV3YhbNDrciSm9VkzYZl6ncRWcD10';
+      const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&limit=1`;
+      
+      axios.get(url)
+        .then(response => {
+          const data = response.data;
+          if (data.data.length > 0) {
+            const gifUrl = data.data[0].images.fixed_height.url;
+            appendGifToPage(gifUrl);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+    
+    function appendGifToPage(gifUrl) {
+      const gifImage = document.createElement('img');
+      gifImage.src = gifUrl;
+      gifImage.classList.add('gifImage');
+      gifContainer.appendChild(gifImage);
+    }
+  </script>
+</body>
+</html>
